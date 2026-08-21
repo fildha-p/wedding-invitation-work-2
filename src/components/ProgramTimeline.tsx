@@ -6,15 +6,11 @@ const events = [
     name: "Haldi",
     date: "September 1, 2026 · 4:00 PM onwards",
     note: "Manadiyil House",
-    swatches: ["#F4C542", "#F48FB1", "#FF8C42"],
-    swatchLabel: "Yellow · Pink · Orange",
   },
   {
     name: "Sangeet",
     date: "September 2, 2026 · 6:00 PM onwards",
     note: "Manadiyil House",
-    swatches: ["#212121"],
-    swatchLabel: "Black",
   },
   {
     name: "Wedding Ceremony",
@@ -22,8 +18,6 @@ const events = [
     malayalamDate: "1202 Chingam 20",
     time: "Muhurtham · 10:30 to 11:30 AM",
     note: "CIAL Convention Centre, Nedumbassery",
-    swatches: [],
-    swatchLabel: "",
   },
 ];
 
@@ -99,20 +93,6 @@ export default function ProgramTimeline() {
               <p className="mt-0.5 text-sm italic" style={{ color: "#E6DDC3" }}>
                 {ev.note}
               </p>
-              <div className="mt-2 flex flex-wrap items-center gap-2">
-                {ev.swatches.map((c) => (
-                  <div
-                    key={c}
-                    className="h-5 w-5 rounded-full border border-black/10"
-                    style={{ background: c }}
-                  />
-                ))}
-                {ev.swatchLabel && (
-                  <span className="text-xs" style={{ color: "#E6DDC3" }}>
-                    {ev.swatchLabel}
-                  </span>
-                )}
-              </div>
             </div>
           </motion.div>
         ))}

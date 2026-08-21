@@ -103,6 +103,12 @@ export default function DressCode() {
               })}
             </div>
             <p className="mb-4 text-xs" style={{ color: "#E6DDC3" }}>
+              <span
+                className="font-serif italic"
+                style={{ color: "#F1E4B8", fontSize: 14 }}
+              >
+                Dress code:
+              </span>{" "}
               {c.label}
             </p>
           </motion.div>
