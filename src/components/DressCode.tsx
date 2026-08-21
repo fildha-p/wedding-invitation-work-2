@@ -2,6 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import SectionDivider from "./SectionDivider";
 
+const eventLocationUrl = "https://maps.app.goo.gl/uTeNTpTLovLokgiT9?g_st=iw";
+
 const codes = [
   {
     event: "Haldi",
@@ -12,14 +14,12 @@ const codes = [
       { name: "Orange", color: "#FF8C42" },
     ],
     label: "Yellow · Pink · Orange",
-    inspiration: ["Light kurta sets", "Floral sarees", "Soft festive linens"],
   },
   {
     event: "Sangeet",
     date: "Sep 2 · 6 PM",
     swatches: [{ name: "Black", color: "#212121" }],
     label: "Black",
-    inspiration: ["Black ethnic wear", "Gold details", "Evening silhouettes"],
   },
 ];
 
@@ -36,7 +36,7 @@ export default function DressCode() {
           textShadow: "0 2px 16px rgba(20,15,10,0.68)",
         }}
       >
-        Dress Code
+        Events
       </h2>
       <SectionDivider />
       <div
@@ -105,22 +105,45 @@ export default function DressCode() {
             <p className="mb-4 text-xs" style={{ color: "#E6DDC3" }}>
               {c.label}
             </p>
-            <div className="grid gap-2">
-              {c.inspiration.map((item) => (
-                <motion.div
-                  key={item}
-                  className="dress-inspiration-mini"
-                  whileHover={{ y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 260, damping: 20 }}
-                >
-                  {item}
-                </motion.div>
-              ))}
-            </div>
           </motion.div>
         ))}
       </div>
+      <motion.a
+        href={eventLocationUrl}
+        target="_blank"
+        rel="noreferrer"
+        className="event-location-link mx-auto mt-6 inline-flex max-w-sm items-center justify-center gap-2 rounded-full px-6 py-3 font-serif italic"
+        style={{
+          color: "#F1E4B8",
+          border: "1.5px solid rgba(217,196,143,0.72)",
+          background: "rgba(20,15,10,0.72)",
+          boxShadow:
+            "0 12px 30px rgba(20,15,10,0.32), 0 0 24px rgba(217,196,143,0.14)",
+          textDecoration: "none",
+          cursor: "pointer",
+        }}
+        whileHover={{
+          y: -3,
+          backgroundColor: "rgba(20,15,10,0.88)",
+          boxShadow:
+            "0 16px 34px rgba(20,15,10,0.38), 0 0 30px rgba(217,196,143,0.26)",
+        }}
+        whileTap={{ scale: 0.98 }}
+      >
+        <span className="event-location-icon" aria-hidden="true">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none">
+            <path
+              d="M12 21s7-5.6 7-12a7 7 0 1 0-14 0c0 6.4 7 12 7 12Z"
+              stroke="currentColor"
+              strokeWidth="1.8"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+            <circle cx="12" cy="9" r="2.4" stroke="currentColor" strokeWidth="1.8" />
+          </svg>
+        </span>
+        <span>Open Manadiyil House Location</span>
+      </motion.a>
     </section>
   );
 }

@@ -39,9 +39,10 @@ export default function CoupleIntro() {
             Dr Aiswarya
           </p>
           <p
-            className="mt-1 font-serif text-sm italic"
+            className="mt-2 font-serif italic"
             style={{
               color: "#E6DDC3",
+              fontSize: "clamp(16px,2.4vw,21px)",
               fontWeight: 500,
               textShadow: "0 2px 10px rgba(20,15,10,0.6)",
             }}
@@ -77,9 +78,10 @@ export default function CoupleIntro() {
             Dr Anugrah
           </p>
           <p
-            className="mt-1 font-serif text-sm italic"
+            className="mt-2 font-serif italic"
             style={{
               color: "#E6DDC3",
+              fontSize: "clamp(16px,2.4vw,21px)",
               fontWeight: 500,
               textShadow: "0 2px 10px rgba(20,15,10,0.6)",
             }}

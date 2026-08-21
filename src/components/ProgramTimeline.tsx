@@ -5,14 +5,14 @@ const events = [
   {
     name: "Haldi",
     date: "September 1, 2026 · 4:00 PM onwards",
-    note: "At Groom's Residence",
+    note: "Manadiyil House",
     swatches: ["#F4C542", "#F48FB1", "#FF8C42"],
     swatchLabel: "Yellow · Pink · Orange",
   },
   {
     name: "Sangeet",
     date: "September 2, 2026 · 6:00 PM onwards",
-    note: "At Groom's Residence",
+    note: "Manadiyil House",
     swatches: ["#212121"],
     swatchLabel: "Black",
   },

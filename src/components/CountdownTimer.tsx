@@ -42,17 +42,15 @@ export default function CountdownTimer() {
       >
         Counting Down to Forever
       </p>
-      <div className="mt-6 flex flex-wrap justify-center gap-3">
+      <div className="mt-6 flex flex-nowrap justify-center gap-2 sm:gap-3">
         {boxes.map((b, i) => (
           <motion.div
             key={b.label}
-            className="text-center"
+            className="countdown-card text-center"
             style={{
               background: "rgba(20,15,10,0.52)",
               border: "1.5px solid rgba(217,196,143,0.58)",
               borderRadius: 12,
-              padding: "16px 24px",
-              minWidth: 80,
             }}
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +62,7 @@ export default function CountdownTimer() {
               className="font-serif font-light"
               style={{
                 color: "#D9C48F",
-                fontSize: "clamp(36px,6vw,56px)",
+                fontSize: "clamp(26px,8vw,56px)",
                 lineHeight: 1,
               }}
               initial={{ rotateX: -28, opacity: 0.75, y: -4 }}
@@ -73,7 +71,7 @@ export default function CountdownTimer() {
             >
               {pad(b.val)}
             </motion.div>
-            <div className="mt-1 text-xs tracking-widest" style={{ color: "#E6DDC3" }}>
+            <div className="countdown-label mt-1 text-xs tracking-widest" style={{ color: "#E6DDC3" }}>
               {b.label}
             </div>
           </motion.div>
