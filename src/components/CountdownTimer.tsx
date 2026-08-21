@@ -34,7 +34,11 @@ export default function CountdownTimer() {
     <section className="px-6 py-16 text-center" style={{ background: "#FAF7F2" }}>
       <p
         className="mb-2 font-serif font-light italic"
-        style={{ color: "#2D5016", fontSize: "clamp(18px,3vw,28px)" }}
+        style={{
+          color: "#D9C48F",
+          fontSize: "clamp(18px,3vw,28px)",
+          textShadow: "0 2px 16px rgba(20,15,10,0.68)",
+        }}
       >
         Counting Down to Forever
       </p>
@@ -44,8 +48,8 @@ export default function CountdownTimer() {
             key={b.label}
             className="text-center"
             style={{
-              background: "#fff",
-              border: "1.5px solid #2D5016",
+              background: "rgba(20,15,10,0.52)",
+              border: "1.5px solid rgba(217,196,143,0.58)",
               borderRadius: 12,
               padding: "16px 24px",
               minWidth: 80,
@@ -55,17 +59,21 @@ export default function CountdownTimer() {
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
           >
-            <div
+            <motion.div
+              key={`${b.label}-${b.val}`}
               className="font-serif font-light"
               style={{
-                color: "#C9A84C",
+                color: "#D9C48F",
                 fontSize: "clamp(36px,6vw,56px)",
                 lineHeight: 1,
               }}
+              initial={{ rotateX: -28, opacity: 0.75, y: -4 }}
+              animate={{ rotateX: 0, opacity: 1, y: 0 }}
+              transition={{ duration: 0.35, ease: "easeOut" }}
             >
               {pad(b.val)}
-            </div>
-            <div className="mt-1 text-xs tracking-widest" style={{ color: "#aaa" }}>
+            </motion.div>
+            <div className="mt-1 text-xs tracking-widest" style={{ color: "#E6DDC3" }}>
               {b.label}
             </div>
           </motion.div>

@@ -14,11 +14,18 @@ export default function Wishes() {
 
   function send() {
     if (!wish.trim()) return;
-    const updated = [wish.trim(), ...wishes];
+    const message = wish.trim();
+    const whatsappText = `Wedding wishes for Dr Aiswarya & Dr Anugrah:\n\n${message}`;
+    const updated = [message, ...wishes];
     localStorage.setItem("wedding_wishes", JSON.stringify(updated));
     setWishes(updated);
     setWish("");
     setToast(true);
+    window.open(
+      `https://wa.me/919605767490?text=${encodeURIComponent(whatsappText)}`,
+      "_blank",
+      "noopener,noreferrer",
+    );
     setTimeout(() => setToast(false), 3000);
   }
 
@@ -33,7 +40,11 @@ export default function Wishes() {
       >
         <h2
           className="font-serif font-light italic"
-          style={{ color: "#2D5016", fontSize: "clamp(28px,5vw,44px)" }}
+          style={{
+            color: "#D9C48F",
+            fontSize: "clamp(28px,5vw,44px)",
+            textShadow: "0 2px 16px rgba(20,15,10,0.68)",
+          }}
         >
           Send Your Wishes
         </h2>
@@ -45,9 +56,9 @@ export default function Wishes() {
           className="w-full resize-none rounded-xl p-4 font-sans text-base"
           style={{
             minHeight: 100,
-            border: "1px solid #ddd",
-            background: "#fff",
-            color: "#2C2C2C",
+            border: "1px solid rgba(217,196,143,0.45)",
+            background: "rgba(20,15,10,0.52)",
+            color: "#E6DDC3",
             marginBottom: 12,
           }}
         />
@@ -56,14 +67,14 @@ export default function Wishes() {
           onClick={send}
           className="rounded-lg px-10 py-4 font-serif text-white italic"
           style={{
-            background: "#2D5016",
+            background: "rgba(20,15,10,0.68)",
             fontSize: 18,
             letterSpacing: 1,
             border: "none",
             cursor: "pointer",
           }}
         >
-          Send Message 💌
+          Send Message
         </button>
         <div className="mt-8 text-left">
           {wishes.map((w, i) => (
@@ -71,10 +82,10 @@ export default function Wishes() {
               key={`${w}-${i}`}
               className="mb-3 px-4 py-3 font-serif italic"
               style={{
-                borderLeft: "3px solid #C9A84C",
+                borderLeft: "3px solid #D9C48F",
                 borderRadius: "0 8px 8px 0",
-                background: "#fff",
-                color: "#555",
+                background: "rgba(20,15,10,0.52)",
+                color: "#E6DDC3",
                 fontSize: 16,
               }}
             >
@@ -90,7 +101,7 @@ export default function Wishes() {
         animate={{ opacity: toast ? 1 : 0, y: toast ? 0 : 10 }}
         transition={{ duration: 0.4 }}
       >
-        Wishes sent! 💚
+        Opening WhatsApp
       </motion.div>
     </section>
   );

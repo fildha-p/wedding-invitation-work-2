@@ -23,7 +23,7 @@ export default function Hero() {
           className="mb-3 font-serif italic tracking-widest"
           style={{ color: "#8B1A1A", fontSize: "clamp(12px,2.5vw,15px)" }}
         >
-          ✦ &nbsp; You're Invited &nbsp; ✦
+          You're Invited
         </p>
         <h1
           className="font-serif font-light"

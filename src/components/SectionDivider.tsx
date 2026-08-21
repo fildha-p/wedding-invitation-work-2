@@ -5,14 +5,13 @@ export default function SectionDivider() {
       style={{ color: "#C9A84C" }}
     >
       <span
-        className="block h-px w-16"
+        className="section-divider-line block h-px w-16"
         style={{
           background: "linear-gradient(to right, transparent, #C9A84C)",
         }}
       />
-      ✦
       <span
-        className="block h-px w-16"
+        className="section-divider-line block h-px w-16"
         style={{
           background: "linear-gradient(to left, transparent, #C9A84C)",
         }}

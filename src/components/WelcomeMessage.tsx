@@ -13,18 +13,26 @@ export default function WelcomeMessage() {
       >
         <h2
           className="font-serif font-light italic"
-          style={{ color: "#2D5016", fontSize: "clamp(28px,5vw,44px)" }}
+          style={{
+            color: "#D9C48F",
+            fontSize: "clamp(28px,5vw,44px)",
+            textShadow: "0 2px 16px rgba(20,15,10,0.68)",
+          }}
         >
           A Blessed Occasion
         </h2>
         <SectionDivider />
         <p
           className="font-serif italic leading-relaxed"
-          style={{ color: "#555", fontSize: "clamp(16px,2.5vw,22px)" }}
+          style={{
+            color: "#E6DDC3",
+            fontSize: "clamp(16px,2.5vw,22px)",
+            textShadow: "0 2px 10px rgba(20,15,10,0.6)",
+          }}
         >
           We are honored to welcome you to the wedding ceremony of Dr Aiswarya &
           Dr Anugrah. As they begin their journey together in faith and love, we
-          thank you for being part of this blessed occasion. 🤍
+          thank you for being part of this blessed occasion.
         </p>
       </motion.div>
     </section>

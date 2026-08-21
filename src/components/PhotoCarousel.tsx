@@ -27,7 +27,11 @@ export default function PhotoCarousel() {
       >
         <h2
           className="font-serif font-light italic"
-          style={{ color: "#2D5016", fontSize: "clamp(28px,5vw,44px)" }}
+          style={{
+            color: "#D9C48F",
+            fontSize: "clamp(28px,5vw,44px)",
+            textShadow: "0 2px 16px rgba(20,15,10,0.68)",
+          }}
         >
           Our Journey
         </h2>
@@ -38,8 +42,9 @@ export default function PhotoCarousel() {
             width: "min(400px, 90vw)",
             aspectRatio: "4/5",
             borderRadius: 16,
-            boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-            background: "#e8e0d0",
+            boxShadow: "0 16px 42px rgba(20,15,10,0.45)",
+            background: "rgba(20,15,10,0.45)",
+            border: "1px solid rgba(217,196,143,0.45)",
           }}
         >
           <AnimatePresence mode="wait">
@@ -62,7 +67,7 @@ export default function PhotoCarousel() {
               onClick={() => setCurrent(i)}
               aria-label={`Show image ${i + 1}`}
               className="h-2 w-2 rounded-full transition-colors"
-              style={{ background: i === current ? "#2D5016" : "#ccc" }}
+              style={{ background: i === current ? "#D9C48F" : "rgba(230,221,195,0.45)" }}
             />
           ))}
         </div>
