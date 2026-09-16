@@ -24,48 +24,51 @@ textarea {
 
 .photo-blend-bg {
   position: relative;
-  background: #faf7f2;
+  isolation: isolate;
+  background: #20140f;
+}
+
+.section-video-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at center, rgba(217, 196, 143, 0.08), transparent 58%),
+    #20140f;
+}
+
+.section-video-backdrop-media {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: sepia(0.16) saturate(0.88) brightness(0.78) contrast(1.04);
+  transform: scale(1.035);
+  animation: videoBackdropDrift 18s ease-in-out infinite alternate;
 }
 
 .photo-blend-bg > section {
-  --section-bg: url("/assets/pic1.jpeg");
+  position: relative;
+  z-index: 1;
   background-image:
     linear-gradient(
       to bottom,
-      rgba(20, 15, 10, 0.12) 0%,
-      rgba(20, 15, 10, 0.28) 46%,
-      rgba(20, 15, 10, 0.5) 100%
+      rgba(20, 15, 10, 0.18) 0%,
+      rgba(20, 15, 10, 0.34) 46%,
+      rgba(20, 15, 10, 0.58) 100%
     ),
     linear-gradient(
-      rgba(20, 15, 10, 0.34),
-      rgba(20, 15, 10, 0.34)
-    ),
-    var(--section-bg) !important;
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+      rgba(20, 15, 10, 0.24),
+      rgba(20, 15, 10, 0.24)
+    ) !important;
+  background-color: transparent !important;
   backdrop-filter: blur(1.5px) saturate(1.04);
-  animation: backgroundDrift 28s ease-in-out infinite alternate;
-}
-
-.photo-blend-bg > section:nth-of-type(4n + 1) {
-  --section-bg: url("/assets/pic1.jpeg");
-}
-
-.photo-blend-bg > section:nth-of-type(4n + 2) {
-  --section-bg: url("/assets/pic2.jpeg");
-}
-
-.photo-blend-bg > section:nth-of-type(4n + 3) {
-  --section-bg: url("/assets/pic3.jpeg");
-}
-
-.photo-blend-bg > section:nth-of-type(4n + 4) {
-  --section-bg: url("/assets/pic4.jpeg");
 }
 
 .photo-blend-bg > footer {
+  position: relative;
+  z-index: 1;
   background-image:
     radial-gradient(
       ellipse at center,
@@ -280,6 +283,30 @@ textarea {
   z-index: 1;
 }
 
+.reception-card-frame {
+  border: 1px solid rgba(217, 196, 143, 0.6);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at center, rgba(217, 196, 143, 0.12), transparent 58%),
+    linear-gradient(135deg, rgba(42, 23, 16, 0.92), rgba(123, 94, 46, 0.78));
+  box-shadow:
+    0 22px 58px rgba(20, 15, 10, 0.42),
+    0 0 34px rgba(217, 196, 143, 0.14);
+}
+
+.reception-card-frame img {
+  filter: sepia(0.08) saturate(0.92) contrast(1.02);
+}
+
+.reception-detail-panel {
+  border: 1px solid rgba(217, 196, 143, 0.42);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at center, rgba(217, 196, 143, 0.1), transparent 66%),
+    rgba(20, 15, 10, 0.48);
+  box-shadow: inset 0 1px 0 rgba(255, 244, 210, 0.1);
+}
+
 .dress-fabric-swatch {
   position: relative;
   height: 36px;
@@ -364,12 +391,12 @@ textarea {
   animation: locationIconPulse 2.2s ease-in-out infinite;
 }
 
-@keyframes backgroundDrift {
+@keyframes videoBackdropDrift {
   0% {
-    background-position: center center;
+    transform: scale(1.035) translate3d(0, 0, 0);
   }
   100% {
-    background-position: center 54%;
+    transform: scale(1.075) translate3d(0, -1.5%, 0);
   }
 }
 
@@ -548,8 +575,15 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .photo-blend-bg > section {
-    background-attachment: scroll !important;
+  .section-video-backdrop {
+    position: absolute;
+    inset: 0;
+  }
+
+  .section-video-backdrop-media {
+    position: sticky;
+    top: 0;
+    height: 100vh;
   }
 
   .petal {

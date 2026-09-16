@@ -46,13 +46,13 @@ export default function Hero() {
           className="mt-6 font-serif tracking-widest"
           style={{ fontSize: "clamp(13px,2vw,17px)" }}
         >
-          SATURDAY · 5 SEPTEMBER 2026
+          SATURDAY · 19 SEPTEMBER 2026
         </p>
         <p
           className="mt-1 font-serif tracking-widest"
           style={{ color: "#888", fontSize: "clamp(11px,1.8vw,14px)" }}
         >
-          1202 ചിങ്ങം 20 · CIAL Convention Centre
+          7:00 PM TO 10:00 PM · ARZAHNA BALLROOM
         </p>
         <SectionDivider />
       </motion.div>

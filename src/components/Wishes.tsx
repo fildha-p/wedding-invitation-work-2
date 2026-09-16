@@ -8,16 +8,16 @@ export default function Wishes() {
   const [toast, setToast] = useState(false);
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("wedding_wishes") || "[]");
+    const stored = JSON.parse(localStorage.getItem("reception_wishes") || "[]");
     setWishes(stored);
   }, []);
 
   function send() {
     if (!wish.trim()) return;
     const message = wish.trim();
-    const whatsappText = `Wedding wishes for Dr Aiswarya & Dr Anugrah:\n\n${message}`;
+    const whatsappText = `Reception wishes for Dr Aiswarya & Dr Anugrah:\n\n${message}`;
     const updated = [message, ...wishes];
-    localStorage.setItem("wedding_wishes", JSON.stringify(updated));
+    localStorage.setItem("reception_wishes", JSON.stringify(updated));
     setWishes(updated);
     setWish("");
     setToast(true);

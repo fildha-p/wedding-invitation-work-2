@@ -48,7 +48,7 @@ export default function Footer() {
               "0 0 10px rgba(217,196,143,0.28), 0 0 26px rgba(184,146,74,0.22), 0 2px 12px rgba(20,15,10,0.72)",
           }}
         >
-          Adith Sajeevan
+          Eversafe Group Of companies
         </p>
         <p
           className="mt-7 text-xs tracking-widest"

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 function getTimeLeft() {
-  const target = new Date("2026-09-05T00:00:00+05:30").getTime();
+  const target = new Date("2026-09-19T19:00:00+04:00").getTime();
   const diff = Math.max(0, target - Date.now());
   return {
     d: Math.floor(diff / 86400000),
@@ -40,7 +40,7 @@ export default function CountdownTimer() {
           textShadow: "0 2px 16px rgba(20,15,10,0.68)",
         }}
       >
-        Counting Down to Forever
+        Counting Down to the Reception
       </p>
       <div className="mt-6 flex flex-nowrap justify-center gap-2 sm:gap-3">
         {boxes.map((b, i) => (

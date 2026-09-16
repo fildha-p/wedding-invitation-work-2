@@ -19,7 +19,7 @@ export default function WelcomeMessage() {
             textShadow: "0 2px 16px rgba(20,15,10,0.68)",
           }}
         >
-          A Blessed Occasion
+          A Reception Evening
         </h2>
         <SectionDivider />
         <p
@@ -30,9 +30,9 @@ export default function WelcomeMessage() {
             textShadow: "0 2px 10px rgba(20,15,10,0.6)",
           }}
         >
-          We are honored to welcome you to the wedding ceremony of Dr Aiswarya &
-          Dr Anugrah. As they begin their journey together in faith and love, we
-          thank you for being part of this blessed occasion.
+          We are honored to welcome you to the wedding reception of Dr Aiswarya
+          & Dr Anugrah. Your presence will make this evening of celebration,
+          family, and blessings truly special.
         </p>
       </motion.div>
     </section>

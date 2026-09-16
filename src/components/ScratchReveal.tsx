@@ -58,7 +58,7 @@ export default function ScratchReveal() {
     ctx.fillText("Scratch the Seal", canvas.width / 2, canvas.height / 2 - 6);
     ctx.font = "12px 'Lato'";
     ctx.fillStyle = "rgba(230,221,195,0.82)";
-    ctx.fillText("reveal the date & venue", canvas.width / 2, canvas.height / 2 + 20);
+    ctx.fillText("reveal the date & time", canvas.width / 2, canvas.height / 2 + 20);
 
     let isScratching = false;
 
@@ -71,7 +71,7 @@ export default function ScratchReveal() {
       if (scratched.current > 25) {
         canvas!.style.opacity = "0";
         canvas!.style.transition = "opacity 0.6s";
-        if (hintRef.current) hintRef.current.textContent = "Revealed!";
+        if (hintRef.current) hintRef.current.textContent = "";
         setRevealed(true);
       }
     }
@@ -135,7 +135,7 @@ export default function ScratchReveal() {
             textShadow: "0 2px 10px rgba(20,15,10,0.6)",
           }}
         >
-          Scratch the card to reveal your invitation details
+          Scratch the card to reveal the reception date and time
         </p>
         <div
           ref={cardRef}
@@ -158,22 +158,10 @@ export default function ScratchReveal() {
             }}
           >
             <p
-              className="font-serif text-sm italic tracking-widest"
-              style={{ color: "#B8924A" }}
-            >
-              REVEALED
-            </p>
-            <p
-              className="font-serif italic"
-              style={{ color: "#D9C48F", fontSize: 28, lineHeight: 1 }}
-            >
-              You're Invited
-            </p>
-            <p
               className="font-serif font-light"
-              style={{ color: "#F3E7C0", fontSize: 18 }}
+              style={{ color: "#D9C48F", fontSize: 28, lineHeight: 1.1 }}
             >
-              Dr Aiswarya & Dr Anugrah
+              19 September 2026
             </p>
             <div
               className="my-1 h-px w-28"
@@ -183,7 +171,7 @@ export default function ScratchReveal() {
               }}
             />
             <p className="font-serif text-sm italic" style={{ color: "#E6DDC3" }}>
-              5 September 2026 · CIAL Convention Centre
+              7:00 PM to 10:00 PM
             </p>
           </div>
           {revealed &&
