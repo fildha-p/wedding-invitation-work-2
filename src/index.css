@@ -40,12 +40,21 @@ textarea {
 }
 
 .section-video-backdrop-media {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  opacity: 0;
   filter: sepia(0.16) saturate(0.88) brightness(0.78) contrast(1.04);
   transform: scale(1.035);
   animation: videoBackdropDrift 18s ease-in-out infinite alternate;
+  transition: opacity 900ms ease;
+  will-change: opacity, transform;
+}
+
+.section-video-backdrop-media.is-active {
+  opacity: 1;
 }
 
 .photo-blend-bg > section {
@@ -575,17 +584,6 @@ textarea {
 }
 
 @media (max-width: 768px) {
-  .section-video-backdrop {
-    position: absolute;
-    inset: 0;
-  }
-
-  .section-video-backdrop-media {
-    position: sticky;
-    top: 0;
-    height: 100vh;
-  }
-
   .petal {
     opacity: 0.42;
   }

@@ -1,7 +1,10 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+
+const assetNumbers = [1, 2, 3, 4];
 
 export default function SectionVideoBackdrop() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([]);
 
   useEffect(() => {
     let frame = 0;
@@ -42,21 +45,43 @@ export default function SectionVideoBackdrop() {
     };
   }, []);
 
-  const assetNumber = (activeIndex % 4) + 1;
+  const activeAssetIndex = activeIndex % assetNumbers.length;
+
+  useEffect(() => {
+    videoRefs.current.forEach((video, index) => {
+      if (!video) return;
+
+      const shouldPlay =
+        index === activeAssetIndex ||
+        index === (activeAssetIndex + 1) % assetNumbers.length;
+
+      if (shouldPlay) {
+        video.play().catch(() => {});
+      } else {
+        video.pause();
+      }
+    });
+  }, [activeAssetIndex]);
 
   return (
     <div className="section-video-backdrop" aria-hidden="true">
-      <video
-        key={assetNumber}
-        className="section-video-backdrop-media"
-        autoPlay
-        loop
-        muted
-        playsInline
-        poster={`/assets/pic${assetNumber}.jpeg`}
-      >
-        <source src={`/assets/pic${assetNumber}.mp4`} type="video/mp4" />
-      </video>
+      {assetNumbers.map((assetNumber, index) => (
+        <video
+          key={assetNumber}
+          ref={(node) => {
+            videoRefs.current[index] = node;
+          }}
+          className={`section-video-backdrop-media ${
+            index === activeAssetIndex ? "is-active" : ""
+          }`}
+          loop
+          muted
+          playsInline
+          preload="auto"
+        >
+          <source src={`/assets/pic${assetNumber}.mp4`} type="video/mp4" />
+        </video>
+      ))}
     </div>
   );
 }
